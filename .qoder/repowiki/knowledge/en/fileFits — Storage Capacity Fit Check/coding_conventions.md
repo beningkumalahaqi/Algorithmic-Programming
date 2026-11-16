@@ -1,0 +1,2 @@
+- Wording such as "fits" / "at most" maps to an inclusive `<=` comparison against `capacity - used`, explicitly distinguishing from strict `<` when exact fill is allowed.
+- Boolean-returning functions avoid wrapping a comparison inside an if/else that assigns `true`/`false` to a variable; the comparison expression itself is returned directly.

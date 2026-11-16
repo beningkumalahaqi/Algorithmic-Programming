@@ -1,0 +1,1 @@
+A JavaScript function and accompanying knowledge notes that determine whether a file of a given size fits into the remaining free space of a storage device.

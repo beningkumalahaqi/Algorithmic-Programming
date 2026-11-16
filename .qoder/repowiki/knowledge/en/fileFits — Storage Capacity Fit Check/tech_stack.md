@@ -1,0 +1,1 @@
+Plain ES5-style JavaScript with no dependencies.
