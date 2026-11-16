@@ -20,3 +20,6 @@ kk_cards:
     tech_stack:
         id: e2d5a51a-043c-49ba-b926-266478a7741b
         title: fileFits — Storage Capacity Fit Check
+    unique_setup_and_commands:
+        id: a41ebc5f-d237-4fd4-80b3-95b1ad8d2fe6
+        title: fileFits — Storage Capacity Fit Check

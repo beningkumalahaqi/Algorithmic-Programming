@@ -29,6 +29,7 @@ Each problem gets one folder, named after the problem:
 |---|---|---|---|
 | `fileFits` | Boundary comparison, boolean expressions | JavaScript | [solution](./fileFits/solution.md) · [review](./fileFits/review.md) · [knowledge](./fileFits/knowledge.md) |
 | `shouldRetry` | Boolean conjunction, retry gating | JavaScript | [solution](./shouldRetry/solution.md) · [review](./shouldRetry/review.md) · [knowledge](./shouldRetry/knowledge.md) |
+| `newerValue` | Tie-breaking comparison, record selection | JavaScript | [solution](./newerValue/solution.md) · [review](./newerValue/review.md) · [knowledge](./newerValue/knowledge.md) |
 
 ## Why Document the Process
 

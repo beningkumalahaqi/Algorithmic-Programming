@@ -1,9 +1,9 @@
 # 知识卡导出索引文件
 schema_version: 1
 locale: en
-commit: local
-branch: local
-exported_at: "2026-11-16T05:56:09Z"
+commit: 8e5eb9ac3a9e9d8efcdacc90b7ed516563c54715
+branch: master
+exported_at: "2026-11-16T06:12:36Z"
 modules:
     root:
         dir_name: fileFits — Storage Capacity Fit Check

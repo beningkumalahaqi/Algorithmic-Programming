@@ -1,0 +1,1 @@
+Run via `node fileFits/solution.js` from the repository root; solutions are standalone scripts with no test harness.

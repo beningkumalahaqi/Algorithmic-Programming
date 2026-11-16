@@ -1,1 +1,1 @@
-A JavaScript function and accompanying knowledge notes that determine whether a file of a given size fits into the remaining free space of a storage device.
+JavaScript exercise that implements a storage-capacity predicate and distills reusable lessons about inclusive boundary comparisons and idiomatic boolean returns.
