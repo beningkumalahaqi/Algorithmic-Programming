@@ -1,0 +1,154 @@
+{
+  "wiki_repo": {
+    "id": "cb897fc1-f809-b10f-a95b-4866fa3b1175",
+    "name": "Algorithmic Programming",
+    "progress_status": "completed",
+    "wiki_present_status": "COMPLETED",
+    "recovery_checkpoint": "wiki_generation_completed",
+    "last_commit_id": "731577c64aec75298a1940869c2a4788d25e8027",
+    "last_commit_update": "2026-11-16T06:02:08Z",
+    "gmt_create": "2026-11-16T06:02:08Z",
+    "gmt_modified": "2026-11-16T06:02:08Z",
+    "extend_info": "{\"language\":\"en\",\"active\":true,\"branch\":\"master\"}"
+  },
+  "wiki_catalogs": [
+    {
+      "id": "96e9007d-17d0-489f-96e6-dea11c5aea0f",
+      "repo_id": "cb897fc1-f809-b10f-a95b-4866fa3b1175",
+      "name": "Project Overview",
+      "description": "project-overview",
+      "prompt": "Create comprehensive content for this project overview section focused on the Algorithmic Programming repository. Explain its purpose as an educational exercise documenting how to solve a boundary-comparison problem in JavaScript, its structure of four complementary files (implementation, problem record, verification review, and reusable knowledge), and its target audience of learners progressing from natural-language requirements to precise algorithmic decisions. Describe how the single pure function fileFits(capacity, used, size) maps to real-world storage capacity checks, and explain the pedagogical value of pairing code with analysis, independent verification, and transferable principles. Include a brief walkthrough of the learning workflow: read the problem statement, study the implementation, execute the documented tests, and extract reusable patterns for future problems.",
+      "progress_status": "completed",
+      "dependent_files": "fileFits/solution.md,fileFits/knowledge.md",
+      "gmt_create": "2026-11-16T06:02:08Z",
+      "gmt_modified": "2026-11-16T06:02:08Z",
+      "kk_dependent_files": [
+        "fileFits/solution.md",
+        "fileFits/knowledge.md"
+      ]
+    },
+    {
+      "id": "a54bc4f6-e165-4578-abb8-c196b26fa58e",
+      "repo_id": "cb897fc1-f809-b10f-a95b-4866fa3b1175",
+      "name": "Implementation Reference",
+      "description": "implementation-reference",
+      "prompt": "Create API documentation for the fileFits function. Document the complete function signature fileFits(capacity: number, used: number, size: number): boolean, including parameter constraints (all inputs are non-negative integers bounded by 1000, with the invariant used ≤ capacity), return value semantics (true when the requested size fits within remaining space, inclusive of exact-fill), and current implementation details. Provide the full source listing, explain the arithmetic reduction from natural language to the expression size <= capacity - used, and contrast the current form (boolean laundering through returnVar with if/else) with the recommended simplified form that directly returns the boolean-valued expression. Include practical examples demonstrating exact-fit, under-capacity, over-capacity, zero-size, empty-drive, and full-drive scenarios. Address integration context: import the function and pass three numbers — there are no configuration options, side effects, or external dependencies.",
+      "progress_status": "completed",
+      "dependent_files": "fileFits/solution.js",
+      "gmt_create": "2026-11-16T06:02:08Z",
+      "gmt_modified": "2026-11-16T06:02:08Z",
+      "order": 1,
+      "kk_dependent_files": [
+        "fileFits/solution.js"
+      ]
+    },
+    {
+      "id": "0277c757-1180-420f-acdc-d18ae77f90a3",
+      "repo_id": "cb897fc1-f809-b10f-a95b-4866fa3b1175",
+      "name": "Problem Analysis & Solution Walkthrough",
+      "description": "problem-analysis",
+      "prompt": "Develop detailed content for this problem analysis section focused on the step-by-step reasoning behind fileFits. Begin with the original problem statement and constraints, then walk through the analysis process: translating 'does the file fit?' into free-space calculation, deciding between strict and inclusive boundaries, and recognizing that 'exactly allowed' means <= rather than <. Present the pseudocode before jumping to code, then show how it becomes a single comparison. Include the complexity table (O(1) time, O(1) space) and explain what these bounds mean conceptually. Cover each of the nine executed edge cases — minimum bounds, maximum bounds, exact fill, full drive, empty drive, and zero-size input — explaining why each was chosen and what it validates. Conclude with the improvement recommendations, particularly the suggestion to eliminate boolean laundering and return the expression directly. Make the narrative accessible to beginners while preserving enough technical depth for experienced developers reviewing the design choices.",
+      "progress_status": "completed",
+      "dependent_files": "fileFits/solution.md",
+      "gmt_create": "2026-11-16T06:02:08Z",
+      "gmt_modified": "2026-11-16T06:02:08Z",
+      "order": 2,
+      "kk_dependent_files": [
+        "fileFits/solution.md"
+      ]
+    },
+    {
+      "id": "fbba1065-f274-4fd5-add5-ef43cdd68b9c",
+      "repo_id": "cb897fc1-f809-b10f-a95b-4866fa3b1175",
+      "name": "Verification & Test Results",
+      "description": "verification-results",
+      "prompt": "Create comprehensive content for the verification and testing section focused on independently confirming correctness. Present the correctness verdict and reproduce all nine executed test cases with their inputs, expected results, and actual outcomes. Explain the testing strategy: probing inclusive boundaries, minimum and maximum bounds, exact-fill conditions, a fully occupied drive, an empty drive, and zero-size requests. Include the performance assessment noting O(1) time and space complexity, and summarize the code-quality finding regarding boolean laundering and its proposed fix. Provide guidance on how a reader can re-run these tests against the current solution.js, interpret failures, and use this review as a template for verifying other algorithmic exercises. Address common issues such as confusing < with <=, misreading 'remaining space' as used instead of capacity - used, and forgetting that capacity and used are themselves bounded.",
+      "progress_status": "completed",
+      "dependent_files": "fileFits/review.md",
+      "gmt_create": "2026-11-16T06:02:08Z",
+      "gmt_modified": "2026-11-16T06:02:08Z",
+      "order": 3,
+      "kk_dependent_files": [
+        "fileFits/review.md"
+      ]
+    },
+    {
+      "id": "52558aea-bb49-47ed-a0f5-8d5b49a43b12",
+      "repo_id": "cb897fc1-f809-b10f-a95b-4866fa3b1175",
+      "name": "Reusable Knowledge",
+      "description": "reusable-knowledge",
+      "prompt": "Develop detailed content for this reusable-knowledge section focused on extracting generalizable principles from the fileFits exercise. Organize around four core topics: (1) wording-to-operator translation table mapping phrases like 'fits', 'exactly allowed', 'more than', and 'at most' to relational operators; (2) the boolean-laundering anti-pattern showing why wrapping a boolean-valued expression in if/else adds noise without changing behavior; (3) invariant exploitation, demonstrating how the guarantee used ≤ capacity eliminates the need for defensive branches on zero-size or empty-drive inputs; and (4) a four-step checklist for any 'does X fit?' problem — compute remaining space, choose the correct boundary operator, validate with boundary cases, and simplify the return. Include concrete code snippets illustrating both the anti-pattern and its correction, plus examples of applying the checklist to new scenarios. Emphasize that these lessons transfer beyond disk-storage problems to inventory limits, memory allocation, scheduling windows, and any domain involving capacity comparisons.",
+      "progress_status": "completed",
+      "dependent_files": "fileFits/knowledge.md",
+      "gmt_create": "2026-11-16T06:02:08Z",
+      "gmt_modified": "2026-11-16T06:02:08Z",
+      "order": 4,
+      "kk_dependent_files": [
+        "fileFits/knowledge.md"
+      ]
+    }
+  ],
+  "wiki_items": [
+    {
+      "id": "96e9007d-17d0-489f-96e6-dea11c5aea0f",
+      "catalog_id": "96e9007d-17d0-489f-96e6-dea11c5aea0f",
+      "title": "Project Overview",
+      "description": "project-overview",
+      "extend": "{}",
+      "progress_status": "completed",
+      "repo_id": "cb897fc1-f809-b10f-a95b-4866fa3b1175",
+      "reference_count": 0,
+      "gmt_create": "2026-11-16T06:02:08Z",
+      "gmt_modified": "2026-11-16T06:02:08Z"
+    },
+    {
+      "id": "a54bc4f6-e165-4578-abb8-c196b26fa58e",
+      "catalog_id": "a54bc4f6-e165-4578-abb8-c196b26fa58e",
+      "title": "Implementation Reference",
+      "description": "implementation-reference",
+      "extend": "{}",
+      "progress_status": "completed",
+      "repo_id": "cb897fc1-f809-b10f-a95b-4866fa3b1175",
+      "reference_count": 0,
+      "gmt_create": "2026-11-16T06:02:08Z",
+      "gmt_modified": "2026-11-16T06:02:08Z"
+    },
+    {
+      "id": "0277c757-1180-420f-acdc-d18ae77f90a3",
+      "catalog_id": "0277c757-1180-420f-acdc-d18ae77f90a3",
+      "title": "Problem Analysis & Solution Walkthrough",
+      "description": "problem-analysis",
+      "extend": "{}",
+      "progress_status": "completed",
+      "repo_id": "cb897fc1-f809-b10f-a95b-4866fa3b1175",
+      "reference_count": 0,
+      "gmt_create": "2026-11-16T06:02:08Z",
+      "gmt_modified": "2026-11-16T06:02:08Z"
+    },
+    {
+      "id": "fbba1065-f274-4fd5-add5-ef43cdd68b9c",
+      "catalog_id": "fbba1065-f274-4fd5-add5-ef43cdd68b9c",
+      "title": "Verification & Test Results",
+      "description": "verification-results",
+      "extend": "{}",
+      "progress_status": "completed",
+      "repo_id": "cb897fc1-f809-b10f-a95b-4866fa3b1175",
+      "reference_count": 0,
+      "gmt_create": "2026-11-16T06:02:08Z",
+      "gmt_modified": "2026-11-16T06:02:08Z"
+    },
+    {
+      "id": "52558aea-bb49-47ed-a0f5-8d5b49a43b12",
+      "catalog_id": "52558aea-bb49-47ed-a0f5-8d5b49a43b12",
+      "title": "Reusable Knowledge",
+      "description": "reusable-knowledge",
+      "extend": "{}",
+      "progress_status": "completed",
+      "repo_id": "cb897fc1-f809-b10f-a95b-4866fa3b1175",
+      "reference_count": 0,
+      "gmt_create": "2026-11-16T06:02:08Z",
+      "gmt_modified": "2026-11-16T06:02:08Z"
+    }
+  ],
+  "knowledge_relations": []
+}
