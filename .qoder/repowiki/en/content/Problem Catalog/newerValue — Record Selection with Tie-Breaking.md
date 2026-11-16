@@ -3,15 +3,15 @@
 <cite>
 **Referenced Files in This Document**
 - [solution.js](file://newerValue/solution.js)
+- [solution.md](file://newerValue/solution.md)
 - [knowledge.md](file://newerValue/knowledge.md)
 - [review.md](file://newerValue/review.md)
-- [solution.md](file://newerValue/solution.md)
 </cite>
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Project Structure](#project-structure)
-3. [Core Components](#core-components)
+2. [Problem Statement and Contract](#problem-statement-and-contract)
+3. [Project Structure](#project-structure)
 4. [Architecture Overview](#architecture-overview)
 5. [Detailed Component Analysis](#detailed-component-analysis)
 6. [Dependency Analysis](#dependency-analysis)
@@ -23,6 +23,25 @@
 The `newerValue` algorithm solves a small but representative selection problem: given two timestamped records, return the payload of the more recent one, and return the first record's payload when timestamps are equal. Each input is a two-element array whose first element is a numeric timestamp and whose second element is a string payload. The function returns that payload as a string.
 
 This document explains the problem statement, input/output contract, solution approach, tie-breaking semantics, edge cases, complexity, and broader algorithmic concepts such as separating key fields from payloads, implementing custom tie-breaking rules, and choosing between predefined alternatives rather than computing an extremum. It also connects the pattern to database query selection strategies and API response routing logic.
+
+## Problem Statement and Contract
+The function receives two updates, each represented as `[timestamp, value]`. The timestamp is an integer in the range `[0, 1000]`; the value is a string up to 20 characters long, including the empty string. The goal is to return the value associated with the update having the larger timestamp. If both timestamps are equal, the first argument wins.
+
+| Aspect | Specification |
+|---|---|
+| Input `first` | Two-element array `[number, string]` |
+| Input `second` | Two-element array `[number, string]` |
+| Timestamp range | Integer in `[0, 1000]` |
+| Value length | Up to 20 characters; empty string is valid |
+| Comparison field | Index `0`, interpreted as timestamp |
+| Payload field | Index `1`, interpreted as string value |
+| Return type | String |
+| Tie rule | Equal timestamps → return the first argument's value |
+| Ordering assumption | Argument position does not imply chronological order |
+
+**Section sources**
+- [solution.md:3-22](file://newerValue/solution.md#L3-L22)
+- [solution.js:1-5](file://newerValue/solution.js#L1-L5)
 
 ## Project Structure
 The `newerValue` module consists of four files:
@@ -55,40 +74,6 @@ graph TB
 - [knowledge.md:1-58](file://newerValue/knowledge.md#L1-L58)
 - [review.md:1-61](file://newerValue/review.md#L1-L61)
 
-**Section sources**
-- [solution.js:1-5](file://newerValue/solution.js#L1-L5)
-- [solution.md:1-147](file://newerValue/solution.md#L1-L147)
-- [knowledge.md:1-58](file://newerValue/knowledge.md#L1-L58)
-- [review.md:1-61](file://newerValue/review.md#L1-L61)
-
-## Core Components
-The core component is the `newerValue(first, second)` function. Its responsibilities are:
-
-1. Compare the timestamps at index `0` of both inputs.
-2. Select the entire winning record based on the comparison and the tie rule.
-3. Extract and return the payload at index `1` of the selected record.
-
-```mermaid
-flowchart TD
-  Start(["Call newerValue(first, second)"]) --> ReadKeys["Read timestamps:<br/>first[0] and second[0]"]
-  ReadKeys --> Compare{"Is first[0] >= second[0]?"}
-  Compare -->|Yes| PickFirst["Select first record"]
-  Compare -->|No| PickSecond["Select second record"]
-  PickFirst --> Extract["Extract payload:<br/>selectedRecord[1]"]
-  PickSecond --> Extract
-  Extract --> Return(["Return string payload"])
-```
-
-**Diagram sources**
-- [solution.js:1-5](file://newerValue/solution.js#L1-L5)
-- [solution.md:3-13](file://newerValue/solution.md#L3-L13)
-- [knowledge.md:11-22](file://newerValue/knowledge.md#L11-L22)
-
-**Section sources**
-- [solution.js:1-5](file://newerValue/solution.js#L1-L5)
-- [solution.md:3-13](file://newerValue/solution.md#L3-L13)
-- [knowledge.md:11-22](file://newerValue/knowledge.md#L11-L22)
-
 ## Architecture Overview
 At a conceptual level, `newerValue` is a pure selection function with no external dependencies. It takes two typed records, applies a domain-specific ordering rule (timestamp-based), enforces a deterministic tie-breaker (positional first), and returns a value extracted from the chosen record.
 
@@ -116,23 +101,6 @@ sequenceDiagram
 This diagram maps directly to the actual function call flow: two inputs arrive, their timestamps are compared, a record is selected, and its payload is returned.
 
 ## Detailed Component Analysis
-
-### Problem Statement and Contract
-The function receives two updates, each represented as `[timestamp, value]`. The timestamp is a number; the value is a string. The goal is to return the value associated with the update having the larger timestamp. If both timestamps are equal, the first argument wins.
-
-| Aspect | Specification |
-|---|---|
-| Input `first` | Two-element array `[number, string]` |
-| Input `second` | Two-element array `[number, string]` |
-| Comparison field | Index `0`, interpreted as timestamp |
-| Payload field | Index `1`, interpreted as string value |
-| Return type | String |
-| Tie rule | Equal timestamps → return the first argument's value |
-| Ordering assumption | Argument position does not imply chronological order |
-
-**Section sources**
-- [solution.md:3-22](file://newerValue/solution.md#L3-L22)
-- [solution.js:1-5](file://newerValue/solution.js#L1-L5)
 
 ### Solution Approach
 The implementation selects the winning record by comparing `first[0]` and `second[0]`, then reads `returnValue[1]` to extract the payload.
