@@ -23,12 +23,8 @@ kk_cards:
     unique_setup_and_commands:
         id: a41ebc5f-d237-4fd4-80b3-95b1ad8d2fe6
         title: fileFits — Storage Capacity Fit Check
-    build_system:
-        id: fa4ce664-59e0-4575-8228-6c337c88b534
-        title: Build System
     error_handling:
         id: 3f1d62e2-b3ea-49ba-b14c-3552e586c4e1
         title: Error Handling in Algorithmic Programming Exercises
 kk_repo_cards:
-    - build_system
     - error_handling

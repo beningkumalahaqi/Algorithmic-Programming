@@ -1,6 +1,6 @@
 ## What system/approach is used
 
-This repository is a collection of small, self-contained JavaScript exercises with no runtime framework, no application layer, and no user-facing error surface. There is no centralized error type, no sentinel-error library, no middleware, and no `try`/`catch` or `panic`/`recover`-equivalent strategy. Errors are treated as input-constraint violations that are handled locally inside each exercise's solution function — typically by returning a default value, early-returning `false`, or selecting one of the provided arguments based on comparison rules.
+This repository is a collection of small, self-contained JavaScript exercises with no runtime framework, no application layer, and no user-facing error surface. There is no centralized error type, no sentinel-error library, no middleware, and no `try`/`catch` or equivalent strategy. Errors are treated as input-constraint violations that are handled locally inside each exercise's solution function — typically by returning a default value, early-returning `false`, or selecting one of the provided arguments based on comparison rules.
 
 The repo's own README states: "This is a learning archive, not a library or an application." That framing explains the absence of any cross-cutting error-handling infrastructure; each problem documents its expected behavior and edge cases in its `solution.md` / `review.md` files rather than in a shared error taxonomy.
 
@@ -8,7 +8,7 @@ The repo's own README states: "This is a learning archive, not a library or an a
 
 No dedicated error module exists. The closest evidence of error-handling conventions appears in the individual exercise solutions:
 
-- `fileFits/solution.js` — handles boundary conditions (e.g., zero capacity, exact-fit) via inclusive comparisons and boolean returns.
+- `fileFits/solution.js` — handles boundary conditions (e.g., zero capacity, exact-fit) via inclusive comparisons (`size <= capacity - used`) and boolean returns.
 - `shouldRetry/solution.js` — uses boolean conjunction to gate retry logic, treating invalid combinations as non-retryable rather than throwing.
 - `newerValue/solution.js` — compares timestamps with `first[0] >= second[0]` and indexes `[1]` for the payload, deliberately avoiding truthiness-based fallbacks so empty strings remain valid data values.
 
