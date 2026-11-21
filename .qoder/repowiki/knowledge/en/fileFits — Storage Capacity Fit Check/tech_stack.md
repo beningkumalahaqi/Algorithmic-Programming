@@ -1,1 +1,1 @@
-Plain ES5-style JavaScript with no dependencies.
+Plain ES5-style JavaScript with no dependencies; executed via Node.js v24.22.1.

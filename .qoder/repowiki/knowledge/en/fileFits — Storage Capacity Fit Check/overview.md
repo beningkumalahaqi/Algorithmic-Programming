@@ -1,1 +1,1 @@
-JavaScript exercise that checks whether a file fits into remaining storage capacity and distills reusable lessons about inclusive boundary comparisons and idiomatic boolean returns.
+Single JavaScript exercise that checks whether a file fits into remaining storage capacity and distills reusable lessons about inclusive boundary comparisons and idiomatic boolean returns.

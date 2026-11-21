@@ -15,6 +15,18 @@
 - [newerValue/solution.md](file://newerValue/solution.md)
 - [newerValue/review.md](file://newerValue/review.md)
 - [newerValue/knowledge.md](file://newerValue/knowledge.md)
+- [searchStep/solution.js](file://searchStep/solution.js)
+- [searchStep/solution.md](file://searchStep/solution.md)
+- [searchStep/review.md](file://searchStep/review.md)
+- [searchStep/knowledge.md](file://searchStep/knowledge.md)
+- [keepsOrder/solution.js](file://keepsOrder/solution.js)
+- [keepsOrder/solution.md](file://keepsOrder/solution.md)
+- [keepsOrder/review.md](file://keepsOrder/review.md)
+- [keepsOrder/knowledge.md](file://keepsOrder/knowledge.md)
+- [swap/solution.js](file://swap/solution.js)
+- [swap/solution.md](file://swap/solution.md)
+- [swap/review.md](file://swap/review.md)
+- [swap/knowledge.md](file://swap/knowledge.md)
 </cite>
 
 ## Table of Contents
@@ -52,13 +64,16 @@ Every problem follows the same four-file layout:
 └── knowledge.md    # Generalizable lessons for future problems
 ```
 
-Currently, the archive contains three problems:
+Currently, the archive contains six problems:
 
 | Problem | Topic | Main idea |
 |---|---|---|
 | `fileFits` | Boundary comparison, boolean expressions | Decide whether a file fits in remaining drive space |
 | `shouldRetry` | Boolean conjunction, retry gating | Decide whether another attempt is allowed |
 | `newerValue` | Tie-breaking comparison, record selection | Return the value belonging to the newer update |
+| `searchStep` | Three-way comparison, binary-search probe | Return found/left/right based on probing an ordered sequence |
+| `keepsOrder` | Sorted-order boundary check, boolean predicate | Check whether an incoming value preserves sorted order |
+| `swap` | Value exchange, temporary variable | Exchange two values using a temporary variable |
 
 ```mermaid
 graph TB
@@ -66,10 +81,16 @@ graph TB
   FileFits["fileFits/"]
   ShouldRetry["shouldRetry/"]
   NewerValue["newerValue/"]
+  SearchStep["searchStep/"]
+  KeepsOrder["keepsOrder/"]
+  Swap["swap/"]
 
   Root --> FileFits
   Root --> ShouldRetry
   Root --> NewerValue
+  Root --> SearchStep
+  Root --> KeepsOrder
+  Root --> Swap
 
   FileFits --> FF_Sol["solution.js"]
   FileFits --> FF_Doc["solution.md"]
@@ -85,6 +106,21 @@ graph TB
   NewerValue --> NV_Doc["solution.md"]
   NewerValue --> NV_Rev["review.md"]
   NewerValue --> NV_Know["knowledge.md"]
+
+  SearchStep --> SS_Sol["solution.js"]
+  SearchStep --> SS_Doc["solution.md"]
+  SearchStep --> SS_Rev["review.md"]
+  SearchStep --> SS_Know["knowledge.md"]
+
+  KeepsOrder --> KO_Sol["solution.js"]
+  KeepsOrder --> KO_Doc["solution.md"]
+  KeepsOrder --> KO_Rev["review.md"]
+  KeepsOrder --> KO_Know["knowledge.md"]
+
+  Swap --> SW_Sol["solution.js"]
+  Swap --> SW_Doc["solution.md"]
+  Swap --> SW_Rev["review.md"]
+  Swap --> SW_Know["knowledge.md"]
 ```
 
 **Diagram sources**
@@ -104,7 +140,7 @@ You only need Node.js installed. The solutions are plain JavaScript with no exte
 If you already have Node.js installed, verify it with your terminal before continuing.
 
 **Section sources**
-- [README.md:40-55](file://README.md#L40-L55)
+- [README.md:40-58](file://README.md#L40-L58)
 
 ## How to Run Solutions
 Run a solution from the repository root using `node <folder>/solution.js`.
@@ -122,11 +158,23 @@ Run a solution from the repository root using `node <folder>/solution.js`.
   ```bash
   node newerValue/solution.js
   ```
+- Run the three-way comparison problem:
+  ```bash
+  node searchStep/solution.js
+  ```
+- Run the sorted-order boundary-check problem:
+  ```bash
+  node keepsOrder/solution.js
+  ```
+- Run the value-exchange problem:
+  ```bash
+  node swap/solution.js
+  ```
 
 Important: individual solution files may not print anything on their own. Their expected behavior, test cases, and verification results are documented in the corresponding `solution.md` and `review.md` files. Use the solution as an executable reference while reading the written explanation.
 
 **Section sources**
-- [README.md:40-55](file://README.md#L40-L55)
+- [README.md:40-58](file://README.md#L40-L58)
 
 ## The Four-File Template
 Each problem folder uses four complementary files. Read them together; they represent one complete learning cycle.
@@ -210,25 +258,34 @@ sequenceDiagram
 ```
 
 ### Connecting Problems to Patterns
-Although the three current problems look different, they share recurring themes:
+Although the current problems look different, they share recurring themes around predicates, comparisons, and simple data movement:
 
 | Problem | Core Pattern | Reusable Insight |
 |---|---|---|
 | `fileFits` | Translate wording into a relational operator | Exact-fill means inclusive bounds; return the comparison directly |
 | `shouldRetry` | Combine two conditions with logical AND | \"Only when\" signals conjunction; equality belongs to the stop side |
 | `newerValue` | Select a record by key, then extract payload | Do not confuse argument order with domain order; ties fix the operator |
+| `searchStep` | Three-way comparison returning a discrete result | A probe returns more than true/false; match, less-than, greater-than map to distinct outcomes |
+| `keepsOrder` | Sorted-order boundary check | Preserve monotonicity by comparing against the relevant boundary rather than sorting |
+| `swap` | Value exchange via temporary variable | Temporary storage is the clearest way to avoid losing either original value |
 
 ```mermaid
 graph LR
   FF["Boundary Comparison<br/>fileFits"]
   SR["Conjunctive Predicate<br/>shouldRetry"]
   NV["Record Selection<br/>newerValue"]
+  SS["Three-Way Probe<br/>searchStep"]
+  KO["Sorted Boundary<br/>keepsOrder"]
+  SW["Temporary Variable<br/>swap"]
 
   Patterns["Reusable Patterns"]
 
   FF --> Patterns
   SR --> Patterns
   NV --> Patterns
+  SS --> Patterns
+  KO --> Patterns
+  SW --> Patterns
 
   Patterns --> Future["Future Problems"]
 ```
@@ -237,11 +294,17 @@ graph LR
 - [fileFits/knowledge.md:1-50](file://fileFits/knowledge.md#L1-L50)
 - [shouldRetry/knowledge.md:1-54](file://shouldRetry/knowledge.md#L1-L54)
 - [newerValue/knowledge.md:1-58](file://newerValue/knowledge.md#L1-L58)
+- [searchStep/knowledge.md:1-58](file://searchStep/knowledge.md#L1-L58)
+- [keepsOrder/knowledge.md:1-58](file://keepsOrder/knowledge.md#L1-L58)
+- [swap/knowledge.md:1-58](file://swap/knowledge.md#L1-L58)
 
 **Section sources**
 - [fileFits/knowledge.md:1-50](file://fileFits/knowledge.md#L1-L50)
 - [shouldRetry/knowledge.md:1-54](file://shouldRetry/knowledge.md#L1-L54)
 - [newerValue/knowledge.md:1-58](file://newerValue/knowledge.md#L1-L58)
+- [searchStep/knowledge.md:1-58](file://searchStep/knowledge.md#L1-L58)
+- [keepsOrder/knowledge.md:1-58](file://keepsOrder/knowledge.md#L1-L58)
+- [swap/knowledge.md:1-58](file://swap/knowledge.md#L1-L58)
 
 ## Troubleshooting
 | Symptom | Likely Cause | Fix |
@@ -253,7 +316,7 @@ graph LR
 | Cannot find where a test case is defined | Tests are embedded in the documentation, not in a test runner | Search `solution.md` and `review.md` for verified input/output tables |
 
 **Section sources**
-- [README.md:40-55](file://README.md#L40-L55)
+- [README.md:40-58](file://README.md#L40-L58)
 - [fileFits/review.md:28-46](file://fileFits/review.md#L28-L46)
 - [shouldRetry/review.md:28-52](file://shouldRetry/review.md#L28-L52)
 - [newerValue/review.md:28-48](file://newerValue/review.md#L28-L48)
@@ -269,4 +332,4 @@ Use this archive as a study loop:
 6. Save the reusable rule from `knowledge.md`.
 7. Repeat with the next problem and compare patterns.
 
-Over time, the folders stop being isolated exercises and become a connected collection of decisions: boundary operators, conjunctive predicates, record selection, tie rules, and the discipline of writing down what makes a solution correct.
+Over time, the folders stop being isolated exercises and become a connected collection of decisions: boundary operators, conjunctive predicates, record selection, three-way probes, sorted-order checks, temporary-variable swaps, and the discipline of writing down what makes a solution correct.
