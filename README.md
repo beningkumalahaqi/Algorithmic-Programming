@@ -23,16 +23,6 @@ Each problem gets one folder, named after the problem:
 | `review.md` | An AI critique of the solution: what is correct, what can be improved, edge-case verification results, and an overall assessment. |
 | `knowledge.md` | Generalizable techniques worth remembering beyond this one problem — patterns, comparison rules, language idioms. |
 
-## Problems Solved
-
-| Problem | Topic | Language | Documentation |
-|---|---|---|---|
-| `fileFits` | Boundary comparison, boolean expressions | JavaScript | [solution](./fileFits/solution.md) · [review](./fileFits/review.md) · [knowledge](./fileFits/knowledge.md) |
-| `shouldRetry` | Boolean conjunction, retry gating | JavaScript | [solution](./shouldRetry/solution.md) · [review](./shouldRetry/review.md) · [knowledge](./shouldRetry/knowledge.md) |
-| `newerValue` | Tie-breaking comparison, record selection | JavaScript | [solution](./newerValue/solution.md) · [review](./newerValue/review.md) · [knowledge](./newerValue/knowledge.md) |
-| `searchStep` | Three-way comparison, binary-search probe | JavaScript | [solution](./searchStep/solution.md) · [review](./searchStep/review.md) · [knowledge](./searchStep/knowledge.md) |
-| `keepsOrder` | Sorted-order boundary check, boolean predicate | JavaScript | [solution](./keepsOrder/solution.md) · [review](./keepsOrder/review.md) · [knowledge](./keepsOrder/knowledge.md) |
-| `swap` | Value exchange, temporary variable | JavaScript | [solution](./swap/solution.md) · [review](./swap/review.md) · [knowledge](./swap/knowledge.md) |
 
 ## Why Document the Process
 
