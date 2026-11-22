@@ -1,8 +1,6 @@
 # Algorithmic Programming
 
-A personal collection of algorithmic programming challenges I have solved, each documented together with the reasoning behind the solution and an AI review of it.
-
-This is a learning archive, not a library or an application. Every problem lives in its own folder so the code and the thinking behind it stay together.
+A learning archive of solved algorithmic challenges, with each solution, its reasoning, and a review kept together in its own folder.
 
 ## Repository Layout
 
@@ -31,18 +29,3 @@ Solving a problem once produces a working function. Writing down how I got there
 - **`solution.md` forces clarity.** If I cannot explain the approach in writing, I did not fully understand it.
 - **`review.md` catches what tests miss.** Verified edge cases, redundant logic, and non-idiomatic patterns are called out explicitly.
 - **`knowledge.md` turns one problem into a reusable rule**, so the next problem starts with a checklist instead of a blank page.
-
-## Running a Solution
-
-Everything here is plain JavaScript with no dependencies. From the repository root:
-
-```bash
-node fileFits/solution.js
-```
-
-Individual solutions may not print anything on their own; the expected behavior and test cases are documented in the corresponding `solution.md` and `review.md`.
-
-## Environment
-
-- Language: JavaScript
-- Runtime: Node.js (solutions verified with Node.js v24.22.1)
