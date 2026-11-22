@@ -88,3 +88,4 @@ Extract reusable lessons rather than re-documenting the individual problem. Expl
 - Favor small Markdown tables for examples, edge cases, complexity, and comparisons when they clarify the material.
 - Update the root `README.md` only when the user asks to register a new completed problem in its index.
 - Do not modify unrelated files or existing user changes.
+- When the user asks to commit and push, use a concise, single-line commit message with no body.
